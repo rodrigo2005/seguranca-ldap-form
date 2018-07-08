@@ -1,7 +1,16 @@
 Versão do java neste exemplo: 1.6
 Servidor: jboss-as-7.1.1.Final
 
-################## - No standalone.xml este trecho abaixo e referente ao configuração do ldap
+
+
+* Instale o Apache Directory Studio
+Baixe o Apache Directory Studio, instale, e inicie ele.
+http://directory.apache.org/studio/downloads.html
+
+
+  
+
+################## - No standalone.xml este trecho abaixo e referente a configuração do ldap
 
 		ADICIONAR ::
 
@@ -34,15 +43,16 @@ Servidor: jboss-as-7.1.1.Final
             </security-domains>
         </subsystem>
 
-        
-        ### No subsystem de logging adicione as seguintes linhas junto com os demais loggers:
-
+        #########################################################################################
+        ### No subsystem de logging adicione as seguintes linhas junto com os demais loggers: ###
+		#########################################################################################
 		<logger category="org.jboss.security">
 		  <level name="TRACE"/>
 		</logger>
 		
-		### Isso serve para sair mais logs no server.log para ajudar a identificar problemas, depois que estiver tudo funcionando, altere de TRACE para WARN.
-		
+		########################################################################################################################################################
+		### Isso serve para sair mais logs no server.log para ajudar a identificar problemas, depois que estiver tudo funcionando, altere de TRACE para WARN.###
+		########################################################################################################################################################	
 		<!-- Configure o seu projeto -->
 		No seu projeto em src/main/webapp/WEB-INF crie um arquivo chamado jboss-web.xml com o seguinte conteúdo:
 		
@@ -51,11 +61,11 @@ Servidor: jboss-as-7.1.1.Final
 		    <security-domain>java:/jaas/seguranca</security-domain>
 		</jboss-web>
         
-        ### esta configuração acima e referente ao <security-domain name="seguranca"> da configuração dentro do standalone.xml
+        ##########################################################################################################################
+        ### esta configuração acima e referente ao <security-domain name="seguranca"> da configuração dentro do standalone.xml ###
+        ##########################################################################################################################
         
-        
-        ####################################################################################################################################################
-        EXEMPLO COMPLETO STANDALONE.XML
+        ** EXEMPLO COMPLETO STANDALONE.XML
         
         <?xml version='1.0' encoding='UTF-8'?>
 
@@ -364,4 +374,5 @@ Servidor: jboss-as-7.1.1.Final
     </socket-binding-group>
 
 </server>
+        
         
